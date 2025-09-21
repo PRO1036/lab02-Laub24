@@ -30,7 +30,7 @@ plastic_waste <- plastic_waste %>%
 ```{r plastic-waste-continent}
 ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
   geom_histogram(binwidth = 0.25) +
-  facet_grid(. ~ continent, nrow(2))
+  facet_wrap(. ~ continent)
 ```
 
 ### Exercise 2
@@ -47,43 +47,48 @@ Car alpha ne dépend pas d'une variable, on veut l'appliqué a tout.
 Boxplot:
 
 ```{r plastic-waste-boxplot}
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
+  geom_boxplot()
 ```
 
 Violin plot:
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(plastic_waste, aes(x = continent, y = plastic_waste_per_cap)) +
+  geom_violin()
 ```
 
-Réponse à la question...
+Le graphe violin nous permet d'avoir plus d'information sur la répartition du plastic waste par habitant. 
 
 ### Exercise 4
 
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap, y = mismanaged_plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
-Réponse à la question...
+ceux qui font plus de déchets les gèrent mieux que ceux qui en font moins. L'Asie ceux sont qui gèrent le moins bien leurs déchets et l'Europe sont ceux qui gèrent le mieux. 
 
 ### Exercise 5
 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(plastic_waste, aes(x = total_pop, y = plastic_waste_per_cap, color = continent)) +
+  geom_point() 
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(plastic_waste, aes(x = coastal_pop, y = plastic_waste_per_cap, color = continent)) +
+  geom_point() 
 ```
 
-Réponse à la question...
+Il semble y avoir une plus forte relation entre les variables du graphique 2. 
 
 ## Conclusion
 
 Recréez la visualisation:
 
 ```{r recreate-viz}
-# insert code here
+
 ```
